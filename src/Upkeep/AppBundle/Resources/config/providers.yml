@@ -1,0 +1,6 @@
+services:
+
+  upkeep_app.provider.login:
+    class: Upkeep\AppBundle\Provider\LoginProvider
+    arguments:
+     - @upkeep_app.repository.user

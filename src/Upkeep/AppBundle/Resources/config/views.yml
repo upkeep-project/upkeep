@@ -1,0 +1,11 @@
+services:
+
+  upkeep.view.login:
+    class: Upkeep\AppBundle\View\LoginView
+    arguments:
+     - @templating.engine.twig
+
+  upkeep.view.client.panel:
+    class: Upkeep\AppBundle\View\Client\ClientView
+    arguments:
+     - @templating.engine.twig

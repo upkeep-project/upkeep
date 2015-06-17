@@ -1,0 +1,13 @@
+upkeep_app_homepage:
+    path:     /
+    defaults: { _controller: upkeep_app.controller.client.panel:showPanel }
+
+upkeep_app_login:
+    path:     /login
+    defaults: { _controller: upkeep_app.controller.login:checkLogin }
+
+upkeep_app_login_check:
+    path:     /login_check
+
+upkeep_app_logout:
+    path:     /logout

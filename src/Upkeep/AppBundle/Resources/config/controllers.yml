@@ -1,0 +1,13 @@
+services:
+
+  upkeep_app.controller.login:
+    class: Upkeep\AppBundle\Controller\LoginController
+    arguments:
+     - @upkeep.view.login
+     - @security.authentication_utils
+
+
+  upkeep_app.controller.client.panel:
+    class: Upkeep\AppBundle\Controller\Client\ClientController
+    arguments:
+     - @upkeep.view.client.panel

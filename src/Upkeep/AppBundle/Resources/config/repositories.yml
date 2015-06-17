@@ -1,0 +1,6 @@
+services:
+
+  upkeep_app.repository.user:
+    class: Upkeep\AppBundle\Repository\UserRepository
+    arguments:
+     - @=service('doctrine').getRepository('UpkeepAppBundle:User')

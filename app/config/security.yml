@@ -1,13 +1,32 @@
 security:
 
+    encoders:
+        Upkeep\AppBundle\Entity\User:
+            algorithm: bcrypt
+
     providers:
-        in_memory:
-            memory: ~
+        database:
+            id: upkeep_app.provider.login
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
 
-        main:
+        default:
+            pattern:    ^/
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                use_referer: true
+            logout:
+              path:   /logout
+            provider: database
             anonymous: ~
+
+    access_control:
+            # require ROLE_ADMIN for /admin*
+        - { path: /login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/, roles: ROLE_CLIENT }
+        - { path: ^/reseller, roles: ROLE_RESELLER }
